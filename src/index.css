@@ -1,10 +1,32 @@
+/* CSS RESET */
 :root {
 	color: hsla(0, 0%, 100%, 0.87);
 	background-color: #242424;
+	font-size: 10px;
+	box-sizing: border-box;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 1.6rem;
+	line-height: 1.6;
+	min-height: 100vh;
+}
+
+/* UTILITY CLASSES */
+.container {
+  border: 2px solid red;
 }
