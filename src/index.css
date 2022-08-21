@@ -28,5 +28,17 @@ body {
 
 /* UTILITY CLASSES */
 .container {
-  border: 2px solid red;
+	border: 2px solid red;
+	width: 98%;
+	max-width: 150rem;
+	margin-inline: auto;
+	/* width: min(98%, 150rem); */
+}
+
+.flex {
+	display: flex;
+}
+
+.items-center {
+	align-items: center;
 }
