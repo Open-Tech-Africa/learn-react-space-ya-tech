@@ -3,7 +3,7 @@ const NavBar = ({ setMovieCharacter }) => {
 		<header className="movie__header flex items-center justify-between">
 			<div className="container flex items-center justify-between">
 				<div className="movie__logo">
-					<p>Unanikazia Mupi Why?</p>
+					<p>Unanikazia Muvi Why?</p>
 				</div>
 				<nav className="movie__nav flex items-center">
 					<li onClick={() => setMovieCharacter('avengers')}>Avengers</li>
