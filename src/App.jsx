@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -26,17 +28,37 @@ const App = () => {
 		fetchMovies('superman');
 	}, []);
 	return (
-		<div className="container">
-			{movies.map(({ Title, Year, imdbID, Type, Poster }) => (
-				<article key={imdbID}>
-					<div className="movie__info flex">
-						<h1>{Title}</h1>
-						<p>{Year}</p>
-					</div>
-					<img src={Poster} alt={Title} />
-				</article>
-			))}
-		</div>
+		<>
+			{/* Navigation bar */}
+			<NavBar />
+
+			{/* Movies */}
+			<main className="container movies grid">
+				{movies.map((movie) => (
+					<Movie key={movie.imdbID} {...movie} />
+				))}
+			</main>
+
+			{/* Footer */}
+			<Footer />
+		</>
+	);
+};
+
+const Movie = ({ Title, Year, Type, Poster }) => {
+	return (
+		<article className="movie">
+			<div className="movie__info flex items-center justify-between">
+				<h1 className="movie__title">{Title?.split(':')[0]}</h1>
+				<p>{Year}</p>
+			</div>
+			<div>
+				<img src={Poster} alt={Title} className="movie__image" />
+			</div>
+			{/* <div className="">
+				<p>{Type}</p>
+			</div> */}
+		</article>
 	);
 };
 
