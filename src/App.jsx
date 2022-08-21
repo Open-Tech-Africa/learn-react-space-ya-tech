@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
+	const [movieCharacter, setMovieCharacter] = useState('avengers');
 	const API_KEY = `http://www.omdbapi.com/?apikey=df4b29cc&`;
 
 	/* Shape of data  
@@ -16,8 +17,6 @@ const App = () => {
 }  
   */
 
-	console.log(movies[0]);
-
 	useEffect(() => {
 		const fetchMovies = async (title) => {
 			const data = await fetch(`${API_KEY}&s=${title}`);
@@ -25,27 +24,31 @@ const App = () => {
 			setMovies(movies.Search);
 		};
 
-		fetchMovies('superman');
-	}, []);
+		fetchMovies(movieCharacter);
+	}, [movieCharacter]);
+
 	return (
 		<>
-			{/* Navigation bar */}
-			<NavBar />
+			<NavBar setMovieCharacter={setMovieCharacter} />
 
-			{/* Movies */}
-			<main className="container movies grid">
-				{movies.map((movie) => (
-					<Movie key={movie.imdbID} {...movie} />
-				))}
-			</main>
+			{movies.length > 0 ? (
+				<main className="container movies grid">
+					{movies?.map((movie) => (
+						<Movie key={movie.imdbID} {...movie} />
+					))}
+				</main>
+			) : (
+				<main className="container movies grid justify-center">
+					<h2 className="movies__not-found">Movies not found</h2>
+				</main>
+			)}
 
-			{/* Footer */}
 			<Footer />
 		</>
 	);
 };
 
-const Movie = ({ Title, Year, Type, Poster }) => {
+const Movie = ({ Title, Year, Poster }) => {
 	return (
 		<article className="movie">
 			<div className="movie__info flex items-center justify-between">
@@ -53,11 +56,12 @@ const Movie = ({ Title, Year, Type, Poster }) => {
 				<p>{Year}</p>
 			</div>
 			<div>
-				<img src={Poster} alt={Title} className="movie__image" />
+				<img
+					src={Poster !== 'N/A' ? Poster : 'https://via.placeholder.com/800'}
+					alt={Title}
+					className="movie__image"
+				/>
 			</div>
-			{/* <div className="">
-				<p>{Type}</p>
-			</div> */}
 		</article>
 	);
 };

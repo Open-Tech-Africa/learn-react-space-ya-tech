@@ -34,6 +34,10 @@ body {
 	font-family: var(--ff-lato);
 }
 
+main {
+	min-height: 80vh;
+}
+
 img {
 	max-width: 100%;
 	display: block;
@@ -109,6 +113,11 @@ img {
 	gap: 4rem;
 
 	padding: 2rem;
+}
+
+.movies__not-found {
+	text-align: center;
+	padding: 4rem 0;
 }
 
 @media (min-width: 475px) {
