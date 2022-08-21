@@ -51,7 +51,7 @@ const App = () => {
 
 const Movie = ({ Title, Year, Poster }) => {
 	return (
-		<article className="movie">
+		<article className="movie slide-in-fwd-center">
 			<div className="movie__info flex items-center justify-between">
 				<h1 className="movie__title">{Title?.split(':')[0]}</h1>
 				<p>{Year}</p>
