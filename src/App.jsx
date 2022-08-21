@@ -6,7 +6,6 @@ const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [movieCharacter, setMovieCharacter] = useState('avengers');
 	const API_KEY = import.meta.env.VITE_API_KEY;
-	console.log(API_KEY);
 
 	/* Shape of data  
   {
