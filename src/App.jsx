@@ -3,8 +3,11 @@ import { NavBar, MovieList, Footer } from './components';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
-	const [movieCharacter, setMovieCharacter] = useState('avengers');
+	const [movieCategory, setMovieCategory] = useState('popular');
+
 	const API_KEY = import.meta.env.VITE_API_KEY;
+	const API_URL = `https://api.themoviedb.org/3/movie/${movieCategory}?api_key=${API_KEY}`;
+	7;
 
 	// {
 	//   "adult": false,
@@ -28,18 +31,31 @@ const App = () => {
 	// }
 
 	useEffect(() => {
-		const fetchMovies = async (title) => {
-			const data = await fetch(`${API_KEY}`);
+		const fetchMovies = async () => {
+			const data = await fetch(API_URL);
 			const movies = await data.json();
+
 			setMovies(movies.results);
 		};
 
-		fetchMovies(movieCharacter);
-	}, []);
+		fetchMovies();
+
+		// if (activeGenreID === 0) {
+		// 	console.log(popularMovies);
+		// 	setFilteredMovies(popularMovies);
+		// 	return;
+		// }
+
+		// const filteredMovies = popularMovies.filter((m) =>
+		// 	m.genre_ids.includes(activeGenreID)
+		// );
+
+		// setFilteredMovies(filteredMovies);
+	}, [movieCategory]);
 
 	return (
 		<>
-			<NavBar setMovieCharacter={setMovieCharacter} />
+			<NavBar setMovieCategory={setMovieCategory} />
 			<MovieList movies={movies} />
 			<Footer />
 		</>

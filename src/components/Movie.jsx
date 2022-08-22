@@ -1,5 +1,5 @@
 const Movie = ({ title, release_date, backdrop_path }) => {
-	const posterURL = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+	const posterURL = `https://image.tmdb.org/t/p/w1280${backdrop_path}`;
 
 	return (
 		<article className="movie slide-in-fwd-center">

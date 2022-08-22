@@ -3,7 +3,7 @@ import { Movie } from '../components';
 const MovieList = ({ movies }) => {
 	return (
 		<div>
-			{movies.length > 0 ? (
+			{movies?.length > 0 ? (
 				<main className="container movies grid">
 					{movies?.map((movie) => (
 						<Movie key={movie.id} {...movie} />
