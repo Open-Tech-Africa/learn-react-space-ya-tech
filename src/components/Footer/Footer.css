@@ -1,0 +1,14 @@
+.movie__footer {
+	background-color: hsl(0 0% 0%/ 0.5);
+	padding: 2rem;
+}
+
+.movie__footer-developer a {
+	color: grey;
+	transition: color 100ms ease-in;
+	font-style: italic;
+}
+
+.movie__footer-developer a:hover {
+	color: gold;
+}
