@@ -6,9 +6,9 @@ const NavBar = ({ setMovieCharacter }) => {
 					<p>Unanikazia Muvi Why?</p>
 				</div>
 				<nav className="movie__nav flex items-center">
-					<li onClick={() => setMovieCharacter('avengers')}>Avengers</li>
-					<li onClick={() => setMovieCharacter('superman')}>Superman</li>
-					<li onClick={() => setMovieCharacter('batman')}>Batman</li>
+					<li onClick={() => setMovieCharacter('avengers')}>Popular</li>
+					<li onClick={() => setMovieCharacter('superman')}>Comedy</li>
+					<li onClick={() => setMovieCharacter('batman')}>Action</li>
 					<li onClick={() => setMovieCharacter('spiderman')}>Spiderman</li>
 				</nav>
 			</div>
