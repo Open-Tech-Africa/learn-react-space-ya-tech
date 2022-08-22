@@ -14,6 +14,7 @@ const Movie = ({ title, release_date, backdrop_path }) => {
           src={posterURL ? posterURL : 'https://via.placeholder.com/800'}
           alt={title}
           className="movie__image"
+          loading="lazy" 
         />
       </div>
     </article>
