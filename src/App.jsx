@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import Footer from './components/Footer';
-import { Movie, NavBar } from './components';
+import { NavBar, MovieList, Footer } from './components';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -28,34 +27,20 @@ const App = () => {
 	//   "vote_count": 2894
 	// }
 
-	console.log(movies);
-
 	useEffect(() => {
 		const fetchMovies = async (title) => {
-			const data = await fetch(`${API_KEY}&s=${title}`);
+			const data = await fetch(`${API_KEY}`);
 			const movies = await data.json();
 			setMovies(movies.results);
 		};
 
 		fetchMovies(movieCharacter);
-	}, [movieCharacter]);
+	}, []);
 
 	return (
 		<>
 			<NavBar setMovieCharacter={setMovieCharacter} />
-
-			{movies.length > 0 ? (
-				<main className="container movies grid">
-					{movies?.map((movie) => (
-						<Movie key={movie.id} {...movie} />
-					))}
-				</main>
-			) : (
-				<main className="container movies grid justify-center">
-					<h2 className="movies__not-found">Movies not found</h2>
-				</main>
-			)}
-
+			<MovieList movies={movies} />
 			<Footer />
 		</>
 	);
