@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container flex justify-between">
         <p>Copyright {new Date().getFullYear()}</p>
         <p className="movie__footer-developer">
-          GitHuib:{' '}
+          GitHub:{' '}
           <a href="https://github.com/mamba-dev-KE" target="_blank">
             mamba-dev-KE
           </a>

@@ -1,6 +1,7 @@
 # How to Run Project
 
-- Go to [OMDBAPI](http://www.omdbapi.com/apikey.aspx)
+- Go to [TMDb](https://developers.themoviedb.org/3/getting-started/introduction)
 - Sign up for the API key
 - Create .env file at the root of the project
-- Add the API key in a variable called VITE_API_KEY -> should look like VITE_API_KEY=http://www.omdbapi.com/?apikey=[key]&
+- Add the API key in a variable called VITE_API_KEY -> should look like VITE_API_KEY=api_key
+- Run the app using yarn dev
